@@ -10,11 +10,25 @@ export function receiveTweets(tweets) {
     }
 }
 
-export function toggleTweet({id, authedUser, hasLiked}) {
+function toggleTweet({id, authedUser, hasLiked}) {
     return {
         type: TOGGLE_TWEET,
         id,
         authedUser,
         hasLiked
+    }
+}
+
+export function handleToggleTweet(info) {
+    return function (dispatch) {
+        // Using optimistic updates
+        dispatch(toggleTweet(info));
+
+        return saveLikeToggle()
+            .catch((err) => {
+                console.warn('Error in handleToggleTweet', err);
+                dispatch(toggleTweet(info));
+                alert('There was an error liking the tweet. Try again')
+            })
     }
 }
