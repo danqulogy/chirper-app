@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-class Dashboard extends React.Component{
+
+class Dashboard extends Component{
     render() {
         console.log(this.props);
         return (
             <div>
-                DASHBOARD
+                <h3 className='center'>Your Timeline</h3>
+                <ul className='dashboard-list'>
+                    {this.props.tweetsIds.map((tweetId => (
+                        <li key={tweetId}>
+                            <div>
+                                TWEET ID: {tweetId}
+                            </div>
+                        </li>
+                    )))}
+                </ul>
             </div>
         );
     }
