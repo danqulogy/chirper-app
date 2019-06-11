@@ -24,7 +24,7 @@ export function handleToggleTweet(info) {
         // Using optimistic updates
         dispatch(toggleTweet(info));
 
-        return saveLikeToggle()
+        return saveLikeToggle(info)
             .catch((err) => {
                 console.warn('Error in handleToggleTweet', err);
                 dispatch(toggleTweet(info));
