@@ -53,9 +53,6 @@ export function handleAddTweet(text, replyingTo) {
             replyingTo
         })
             .then((tweet)=> dispatch(addTweet(tweet)))
-            .then(()=>dispatch(hideLoading())
-            .catch((err)=>{
-                alert('An error occurred adding tweet. Try again')
-            }));
+            .then(()=>dispatch(hideLoading()));
     }
 }
