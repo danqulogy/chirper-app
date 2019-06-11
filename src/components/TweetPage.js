@@ -30,7 +30,8 @@ function mapStateToProps ({ authedUser, tweets, users }, props) {
         id,
         replies: !tweets[id]
             ? []
-            : tweets[id].replies.sort((a,b,) => tweets[b].timestamp - tweets[a].timestamp)
+            : tweets[id].replies
+            // : tweets[id].replies.sort((a,b) => tweets[b].timestamp - tweets[a].timestamp)
     }
 }
 
